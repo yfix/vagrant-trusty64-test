@@ -1,0 +1,16 @@
+geerlingguy.nodejs
+geerlingguy.ruby
+yfix.composer
+yfix.mc
+yfix.memcached
+yfix.mysql
+yfix.mysql
+yfix.nginx
+yfix.ntp
+yfix.php
+yfix.php-mysql
+yfix.php-pecl
+yfix.php-xdebug
+yfix.php-xhprof
+yfix.postfix
+yfix.security
