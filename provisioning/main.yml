@@ -1,0 +1,18 @@
+---
+- hosts: all
+  sudo: yes
+
+  pre_tasks:
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=3600
+
+  tasks:
+    - apt: "name={{ item }} state=installed"
+      with_items:
+        - git
+        - wget
+        - curl
+        - vim
+	# Midnight Commander ini
+    - file: path=~/.config/mc state=directory recurse=yes
+    - template: src=templates/mc.ini.j2 dest=~/.config/mc/ini
