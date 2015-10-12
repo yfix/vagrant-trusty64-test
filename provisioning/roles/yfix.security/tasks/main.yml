@@ -3,9 +3,6 @@
   include_vars: "{{ ansible_os_family }}.yml"
 
 # Fail2Ban
-- include: fail2ban-RedHat.yml
-  when: ansible_os_family == 'RedHat'
-
 - include: fail2ban-Debian.yml
   when: ansible_os_family == 'Debian'
 
@@ -16,8 +13,5 @@
 - include: ssh.yml
 
 # Autoupdate
-- include: autoupdate-RedHat.yml
-  when: ansible_os_family == 'RedHat' and security_autoupdate_enabled
-
 - include: autoupdate-Debian.yml
   when: ansible_os_family == 'Debian' and security_autoupdate_enabled
