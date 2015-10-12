@@ -1,13 +1,18 @@
 ---
 - hosts: all
   sudo: yes
+
   vars:
     users:
       - dir: /home/vagrant
       - dir: /root
+
   pre_tasks:
     - name: Update apt cache if needed.
       apt: update_cache=yes cache_valid_time=3600
+    - name: Add ondrej repository for later versions of PHP.
+      apt_repository: repo='ppa:ondrej/php5-5.6'
+
   tasks:
     - apt: "name={{ item }} state=installed"
       with_items:
@@ -15,7 +20,26 @@
         - wget
         - curl
         - vim
+        - mc
+        - htop
+        - iotop
     - file: path="{{ item.dir }}/.config/mc" state=directory recurse=yes
       with_items: "{{ users }}"
     - template: src=templates/mc.ini.j2 dest="{{ item.dir }}/.config/mc/ini"
       with_items: "{{ users }}"
+
+  roles:
+    - yfix.composer
+    - yfix.mysql
+    - yfix.nodejs
+    - yfix.php
+    - yfix.php-pecl
+    - yfix.php-xhprof
+    - yfix.ruby
+    - yfix.memcached
+    - yfix.nginx
+    - yfix.ntp
+    - yfix.php-mysql
+    - yfix.php-xdebug
+    - yfix.postfix
+    - yfix.security
