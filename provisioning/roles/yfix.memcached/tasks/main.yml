@@ -9,6 +9,8 @@
   when: memcached_user is not defined
 
 # Setup/install tasks.
+- include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
 
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'

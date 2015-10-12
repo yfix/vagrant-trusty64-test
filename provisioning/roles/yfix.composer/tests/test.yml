@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  remote_user: root
+
+  roles:
+    - yfix.php
+    - ansible-role-composer

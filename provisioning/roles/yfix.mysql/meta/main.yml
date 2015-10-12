@@ -1,0 +1,22 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: yfix
+  description: MySQL server for RHEL/CentOS and Debian/Ubuntu
+  company: "Yfix group"
+  license: "license (MIT)"
+  min_ansible_version: 1.4
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  categories:
+    - database

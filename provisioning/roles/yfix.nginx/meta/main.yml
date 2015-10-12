@@ -1,0 +1,23 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: yfix
+  description: Nginx installation for Linux/UNIX.
+  company: "Yfix group"
+  license: "license (MIT)"
+  min_ansible_version: 1.4
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Debian
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+    - development
+    - web

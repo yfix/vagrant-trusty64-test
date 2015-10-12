@@ -29,13 +29,13 @@
       with_items: "{{ users }}"
 
   roles:
+    - geerlingguy.nodejs
+    - geerlingguy.ruby
     - yfix.composer
     - yfix.mysql
-    - yfix.nodejs
     - yfix.php
     - yfix.php-pecl
     - yfix.php-xhprof
-    - yfix.ruby
     - yfix.memcached
     - yfix.nginx
     - yfix.ntp
