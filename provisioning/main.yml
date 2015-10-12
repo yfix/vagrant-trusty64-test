@@ -1,11 +1,13 @@
 ---
 - hosts: all
   sudo: yes
-
+  vars:
+    users:
+      - dir: /home/vagrant
+      - dir: /root
   pre_tasks:
     - name: Update apt cache if needed.
       apt: update_cache=yes cache_valid_time=3600
-
   tasks:
     - apt: "name={{ item }} state=installed"
       with_items:
@@ -13,6 +15,7 @@
         - wget
         - curl
         - vim
-	# Midnight Commander ini
-    - file: path=~/.config/mc state=directory recurse=yes
-    - template: src=templates/mc.ini.j2 dest=~/.config/mc/ini
+    - file: path="{{ item.dir }}/.config/mc" state=directory recurse=yes
+      with_items: "{{ users }}"
+    - template: src=templates/mc.ini.j2 dest="{{ item.dir }}/.config/mc/ini"
+      with_items: "{{ users }}"
