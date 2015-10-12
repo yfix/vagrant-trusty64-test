@@ -14,8 +14,8 @@ Vagrant.configure(2) do |config|
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
   # Set internal *Vagrant* VM name
-  config.vm.define config.vm.hostname do |t|
-  end
+#  config.vm.define config.vm.hostname do |t|
+#  end
   config.vm.synced_folder "synced/", "/synced", type: "nfs"
   config.vm.provision "ansible" do |ansible|
     ansible.host_key_checking = false
