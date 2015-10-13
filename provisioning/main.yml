@@ -7,21 +7,24 @@
       apt: update_cache=yes cache_valid_time=3600
 
   roles:
-    - yfix.common
-#    - geerlingguy.nodejs
-#    - geerlingguy.ruby
-#    - yfix.composer
-    - yfix.mc
+    - yfix.yf
+
+#    - yfix.common
+#    - yfix.mc
+#    - yfix.mysql
+#    - yfix.nginx
+#    - yfix.php
+#    - yfix.php-mysql
+
 #    - yfix.memcached
-    - yfix.mysql
-    - yfix.nginx
 #    - yfix.ntp
-    - yfix.php
-    - yfix.php-mysql
 #    - yfix.php-pecl
 #    - yfix.php-xdebug
 #    - yfix.php-xhprof
 #    - yfix.postfix
 #    - yfix.security
+#    - geerlingguy.nodejs
+#    - geerlingguy.ruby
+#    - yfix.composer
 
   post_tasks: []
