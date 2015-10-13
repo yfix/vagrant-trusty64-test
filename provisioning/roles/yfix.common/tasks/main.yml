@@ -1,0 +1,50 @@
+---
+- name: Install required and useful packages
+  apt: "name={{ item }} state=installed"
+  with_items:
+    - python-software-properties
+    - wget
+    - curl
+    - vim
+    - htop
+    - iotop
+    - bwm-ng
+    - tree
+    - ack-grep
+    - colordiff
+    - lzop
+    - gawk
+    - geoip-bin
+    - geoip-database
+
+- name: Remove not needed packages
+  apt: "name={{ item }} state=absent"
+  with_items:
+    - landscape-client
+    - landscape-common
+
+- name: Generate locales
+  command: "locale-gen ru_RU.UTF-8 ru_UA.UTF-8 uk_UA.UTF-8"
+
+#echo "== Copy authorized keys"
+#cat ./_authorized_keys.txt | $myssh "mkdir -p /root/.ssh/ && chmod 700 /root/.ssh/; cat > /root/.ssh/authorized_keys; chmod 400 /root/.ssh/authorized_keys"
+
+#echo "== Completely disable SWAP"
+#swapoff -a
+
+#echo "== Enable bash completion"
+#sed "/if \[ -f \/etc\/bash_completion/,/fi/ d" -i /root/.bashrc
+#echo "if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion
+#fi" >> /root/.bashrc
+
+#( apt-get install ntp -y && service ntp stop && ntpdate pool.ntp.org && service ntp restart )
+
+#echo "== Nginx extras"
+#( echo y | add-apt-repository ppa:nginx/stable && apt-get update && apt-get install nginx-extras -y )
+
+#echo "== Phantomjs latest"
+#( echo y | add-apt-repository ppa:tanguy-patte/phantomjs && apt-get update && apt-get install phantomjs -y )
+
+#echo "== FFMpeg"
+#( echo y | add-apt-repository ppa:mc3man/trusty-media && apt-get update && apt-get install ffmpeg -y )
