@@ -1,1 +1,1 @@
-/etc/ansible/useful/ansible-roles/mc
+/etc/ansible/public_roles/mc

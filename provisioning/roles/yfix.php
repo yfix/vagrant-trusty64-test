@@ -1,1 +1,1 @@
-/etc/ansible/useful/ansible-roles/php
+/etc/ansible/public_roles/php
